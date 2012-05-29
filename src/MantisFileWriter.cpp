@@ -49,7 +49,7 @@ void MantisFileWriter::Initialize()
 void MantisFileWriter::Execute()
 {
     //allocate some local variables
-    int Result;
+  //    int Result;
     timeval StartTime;
     timeval EndTime;
     
@@ -96,7 +96,8 @@ void MantisFileWriter::Execute()
             cout << "found an unwritten block, might possibly fail?\n";
         }
         Iterator->SetReading();
-        Result = fEgg->write_data( Iterator->Data() );
+	//        Result = 
+	fEgg->write_data( Iterator->Data() );
         fRecordCount++;
         Iterator->SetRead();
     }
