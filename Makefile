@@ -2,7 +2,7 @@ CC=g++
 CFLAGS=-Wall -Werror -O2 -gstabs+
 CSRC=$(wildcard ./src/*.cpp)
 PXINCDIR=/usr/local/include
-PXLIBDIR=/usr/local/lib
+PXLIBDIR=~/proj8/mantis/ #/usr/local/lib
 PXLIB=sig_px1500
 PTHLIB=pthread
 LIBDIRS=$(addprefix -L,$(PXLIBDIR))
@@ -14,7 +14,7 @@ TGT=Mantis
 
 $(TGT): $(OBJ)
 	@echo LD $@
-	@$(CC) -o $@ $(OBJ) $(LDFLAGS)
+	@$(CC) -o $@ $(OBJ) -L ${PXLIBDIR} $(LDFLAGS)
 
 %.o: %.cpp $(BUILDIR)
 	@echo CXX $(basename $(notdir $@))
